@@ -1,7 +1,7 @@
-SRS Project
+### SRS Project
 CS 320
 
-=== Group Members ===
+### Group Members
 
 Jonathan Meisner
 
@@ -12,7 +12,7 @@ Kyle Stoneberg
 Joseph Boothby
 
 
-=== Project Idea (So far) ===
+### Project Idea (So far)
 
 A catalog of different keyboard switches. 
 
