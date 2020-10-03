@@ -29,3 +29,13 @@ Focusing on:
 Catalog build to be object oriented javascript or java with additional modules or packages to be determined
 
 Git Repo (keyboard-webapp) Created & Invited Group Members
+
+10/2:
+
+First Team Meeting
+
+Team Arrangment Documentation Filled out.
+
+Jonathan Meisner appointed as Initial Project Lead
+
+Submitted Document via BB ~4:45pm 10/2/2020
