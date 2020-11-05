@@ -24,13 +24,13 @@ Focusing on:
     Switch Image
     Maybe ($$$)
 
-# 9/30:
+### 9/30:
 
 Catalog build to be object oriented javascript or java with additional modules or packages to be determined
 
 Git Repo (keyboard-webapp) Created & Invited Group Members
 
-# 10/2:
+### 10/2:
 
 First Team Meeting
 
@@ -40,7 +40,7 @@ Jonathan Meisner appointed as Initial Project Lead
 
 Submitted Document via BB ~4:45pm 10/2/2020
 
-# 10/26:
+### 10/26:
 
 Met With Team
 
@@ -48,6 +48,6 @@ Discussed structure of project
 
 ~1 hour 15 minute meeting time
 
-# 11/4:
+### 11/4:
 
 Met With Team
