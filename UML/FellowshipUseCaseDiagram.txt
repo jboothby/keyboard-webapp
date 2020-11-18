@@ -1,0 +1,12 @@
+@startuml
+left to right direction
+skinparam actorStyle awesome
+package Application {
+  usecase "Research Keys" as (Research)
+  usecase "Purchase Keyboard" as (Purchase)
+  usecase "Admin the Website" as (Admin)
+}
+:User: --> (Research)
+:User: --> (Purchase)
+:Main Admin: --> (Admin)
+@enduml

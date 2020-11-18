@@ -1,0 +1,19 @@
+@startuml
+title Fellowship of the Keys\nActivity Diagram\n
+
+(*)-->"Web Application Home Page"
+"Web Application Home Page" --> "Display Switch Descriptions"
+"Display Switch Descriptions" --> "Recommend Switch Type"
+if "Selection Made" then
+  -up->[false]"Display Switch Descriptions"
+else
+  -->[true]"Filter by Switch Selection"
+if "Sort Price" then
+  -->[Low to High]"Set Filter to Ascending"
+  "Set Filter to Ascending"-->"Link to Marketplace"
+else
+  -->[High to Low]"Set Filter to Decending"
+  "Set Filter to Decending"-->"Link to Marketplace"
+-->"Complete"
+"Complete"-->(*)
+@enduml

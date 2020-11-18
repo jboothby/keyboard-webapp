@@ -1,0 +1,6 @@
+@startuml
+title Context Diagram
+"User" -->[Input] "SYSTEM FEATURES"
+"SYSTEM FEATURES" -->[Recommendation] "User"
+"SYSTEM FEATURES" -->[Market Place Link] "User"
+@enduml
