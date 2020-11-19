@@ -1,0 +1,13 @@
+@startuml
+actor User
+database WebApp
+entity Marketplace
+
+User -> WebApp : Data Request
+User <-- WebApp : Data Display
+User -> WebApp : Sort Data
+User <-- WebApp : Display Sorted Data
+User -> WebApp : Select Key
+User <-- WebApp : Display URL
+User -> Marketplace : Follow URL
+@enduml
