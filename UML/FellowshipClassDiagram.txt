@@ -1,0 +1,19 @@
+@startuml
+class Keyswitch{
+  String name
+  String description
+  int pressure
+  boolean tactile
+  boolean clicky
+  int urlEnding
+  String printDescription()
+}
+class Switchlist{
+  Keyswitch[] switchlist
+  void sortByPressure()
+  void sortByTactile()
+  void sortByClicky()
+  void printAllKeys()
+}
+Switchlist --o Keyswitch : contain several >
+@enduml
