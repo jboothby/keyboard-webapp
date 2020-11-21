@@ -1,5 +1,6 @@
 ### SRS Project
-CS 320
+Fellowship of the Keys
+## CS 320
 
 ### Group Members
 
@@ -12,17 +13,39 @@ Kyle Stoneberg
 Joseph Boothby
 
 
-### Project Idea (So far)
+### Project Idea/Status (So far)
 
-A catalog of different keyboard switches. 
+Project is in the Design Phase
 
-Focusing on:
+Site design will consist of an appbar that contians buttons that navigate to the various sections of the website
+
+- Home
+- Information
+- Keyboards
+
+# Home
+
+The home tab will contain a welcome page that explains the use of this website
+
+# Information
+
+The information tab will be the informative center where the user can learn and read about mechanical key switches
+
+# Keyboards
+
+The Keyboards tab will contain the list of keyboards that contain specific switches. The user can filter the list by sound, pressure, tactile, and others to show personalized search results
+The user can then click on the link that will take them to a website that has keyboards available for purchase with the specified switches.
+
+Filtering Ideas:
     Switch Type (Color)
         General Functionality (behavior) of that switch type
     Normal Switch Usage (Gaming, FastTyping, ect.)
     Switch Sound
     Switch Image
-    Maybe ($$$)
+
+The contents of the keyboards tab will be stored either via DB or within the site itself (i.e switch information / links)
+
+The file structure (so far) is to have each tab of the appbar be a separate html file with a connecting javascript file that will handle all scripting
 
 ### 9/30:
 
@@ -51,3 +74,11 @@ Discussed structure of project
 ### 11/4:
 
 Met With Team
+
+### 11/20:
+
+Put together the Software Design Document with team via Zoom
+
+Updated this README with the updated status of the overall project
+
+~ 1.5 hour
