@@ -53,6 +53,33 @@ class Switchlist{
         this.list[i].printDescription();
       }
   }
+
+  // method used to sort the current switchlist in alphabetic order by name
+  sortByName(){
+    // implement a simple bubble sort algorithm
+    for( let i = 0; i < this.list.length; i++) {
+      for( let j = 1; j < this.list.length; j++){
+        if( this.list[j].name < this.list[j-1].name ){
+          let temp = this.list[j-1];
+          this.list[j-1] = this.list[j];
+          this.list[j] = temp;
+        }
+      }
+    }
+  }
+  // sort the list by actuation pressure
+  sortByPressure(){
+    // uses same bubble sort as sortByName
+    for( let i = 0; i < this.list.length; i++) {
+      for( let j = 1; j < this.list.length; j++){
+        if( this.list[j].pressure < this.list[j-1].pressure ){
+          let temp = this.list[j-1];
+          this.list[j-1] = this.list[j];
+          this.list[j] = temp;
+        }
+      }
+    }
+  }
 }
 
 // these lists hold the information for the keyswitches. each switches information is at the same index in each array
@@ -80,4 +107,8 @@ for( let i = 0; i < nameList.length; i++ ){
   sl.addSwitch( new Keyswitch( nameList[i], desList[i], pressureList[i], tactileList[i], clickyList[i], urlEndList[i]));
 }
 
+sl.printAllKeys();
+sl.sortByName();
+sl.printAllKeys();
+sl.sortByPressure();
 sl.printAllKeys();
