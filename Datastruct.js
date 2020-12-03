@@ -10,6 +10,7 @@ class Keyswitch{
     this.urlEnding = urlEnd;// urlEnd is the 2 digit integer at the end of the URL
                             // for the marketplace, it determines the correct page to
                             // send the user to
+    this.url = 'https://mechanicalkeyboards.com/shop/index.php?l=product_list&c='
   }
   printDescription(){
 
@@ -28,10 +29,13 @@ class Keyswitch{
                   this.description + '\n' +
                   'Tactile: ' + tact + '\n' +
                   'Clicky: ' + click + '\n' +
-                  'Pressure: ' + this.pressure + ' grams\n');
+                  'Pressure: ' + this.pressure + ' grams\n' +
+                  'Marketplace: ' + (this.url.concat(this.urlEnding)) +'\n');
 
   }
-}
+
+
+}// end keyswitch class
 
 
 // switchlist holds an array of Keyswitches, and the methods to sort them
@@ -54,32 +58,59 @@ class Switchlist{
       }
   }
 
+
   // method used to sort the current switchlist in alphabetic order by name
-  sortByName(){
+  // uses the strategy design pattern to implement the bubble sort, but on different attributes of the parent object
+  sort( attribute ){
+    //ensure parameter is allowed
+    if ( !(attribute==='name' || attribute==='pressure' || attribute==='clicky' || attribute==='tactile') ) {
+      console.log('Incorrect parameter ' + attribute + ' passed to sort');
+      return;
+    }
+
     // implement a simple bubble sort algorithm
     for( let i = 0; i < this.list.length; i++) {
       for( let j = 1; j < this.list.length; j++){
-        if( this.list[j].name < this.list[j-1].name ){
-          let temp = this.list[j-1];
-          this.list[j-1] = this.list[j];
-          this.list[j] = temp;
+
+
+        if( attribute==='name'){
+          if( this.list[j].name < this.list[j-1].name ) {
+            this.swap(j);
+          }
         }
+
+        else if( attribute==='pressure' ) {
+          if (this.list[j].pressure < this.list[j - 1].pressure) {
+            this.swap(j);
+          }
+        }
+
+        else if( attribute==='clicky' ) {
+          // if current is true, and last is false, switch. frontloads trues
+          if (this.list[j].clicky && !this.list[j - 1].clicky) {
+            this.swap(j);
+          }
+        }
+
+        else if( attribute==='tactile' ) {
+          // if current is true, and last is false, switch. frontloads trues
+          if (this.list[j].tactile && !this.list[j - 1].tactile) {
+            this.swap(j);
+          }
+        }
+
       }
     }
+  }// end of sort method
+
+  // simple method responsible or swapping items in list
+  // reduces clutter and repeated code in the sort method
+  swap(index){
+    let temp = this.list[index - 1];
+    this.list[index-1] = this.list[index];
+    this.list[index] = temp;
   }
-  // sort the list by actuation pressure
-  sortByPressure(){
-    // uses same bubble sort as sortByName
-    for( let i = 0; i < this.list.length; i++) {
-      for( let j = 1; j < this.list.length; j++){
-        if( this.list[j].pressure < this.list[j-1].pressure ){
-          let temp = this.list[j-1];
-          this.list[j-1] = this.list[j];
-          this.list[j] = temp;
-        }
-      }
-    }
-  }
+
 }
 
 // these lists hold the information for the keyswitches. each switches information is at the same index in each array
@@ -107,8 +138,18 @@ for( let i = 0; i < nameList.length; i++ ){
   sl.addSwitch( new Keyswitch( nameList[i], desList[i], pressureList[i], tactileList[i], clickyList[i], urlEndList[i]));
 }
 
+console.log('-----Sorting by Name-----\n');
+sl.sort('name');
 sl.printAllKeys();
-sl.sortByName();
+
+console.log('\n-----Sorting by pressure-----\n');
+sl.sort('pressure');
 sl.printAllKeys();
-sl.sortByPressure();
+
+console.log('\n-----Sorting by clicky-----\n');
+sl.sort('clicky');
+sl.printAllKeys();
+
+console.log('\n-----Sorting by tactile-----\n');
+sl.sort('tactile');
 sl.printAllKeys();
