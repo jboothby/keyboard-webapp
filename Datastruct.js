@@ -113,29 +113,85 @@ class Switchlist{
 
 }
 
-// these lists hold the information for the keyswitches. each switches information is at the same index in each array
-// for example, the Cherry MX Black switch's name is at nameList[0], and it's description is at desList[0], etc...
-nameList = ['MX Black', 'MX Red', 'MX Clear', 'MX Gray', 'MX Green', 'MX Speed Silver', 'MX Silent Red', 'MX Blue', 'MX Brown'];
-desList = ['Powerful and Direct. \nA linear switch with increased spring force',
-           'Smooth and Direct. \nA linear switch with low spring resistance. A first choice for beginners',
-           'Focused, Powerful, and Noticeable. \nA tactile switch with no click, and a sister model to the MX Brown and MX Grey',
-           'Focused, Robust, and Noticeable. \nA slightly modified version of the MX Brown. Offers increased actuation force.',
-           'Clicky, Robust, and Noticeable. \nA slightly modified version of the MX Blue. Offers increased actuation force.',
-           'Fast and Direct. \nThe fastest model of CHERRY MX in full height. Linear with low spring resistance.',
-           'Smooth and Silent. \nA modified version of the MX red that uses damping to reliably minimize noise.',
-           'Clicky and Noticeable. \nA tactile switch that provides audible acoustic feedback.',
-           'Focused and Noticeable. \nA tactile switch with noticeable feedback'];
-pressureList = [60, 45, 65, 80, 80, 45, 45, 60, 55];
-tactileList = [false, false, true, true, true, false, false, true, true];
-clickyList = [false, false, false, false, true, false, false, true, false];
-urlEndList = [13, 14, 50, 84, 48, 363, 476, 12, 11];
+// This structure holds the information about each key
+let keyData = [
+  {
+    'Name': 'MX Black',
+    'Description': 'Powerful and Direct. \nA linear switch with increased spring force',
+    'Pressure': 60,
+    'Tactile': false,
+    'Clicky': false,
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=13>Buy Here</a>'
+  },
+  {
+    'Name': 'MX Red',
+    'Description': 'Smooth and Direct. \nA linear switch with low spring resistance. A first choice for beginners',
+    'Pressure': 45,
+    'Tactile': false,
+    'Clicky': false,
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=14>Buy Here</a>'
+  },
+  {
+    'Name': 'MX Clear',
+    'Description': 'Focused, Powerful, and Noticeable. \nA Tactile switch with no click, and a sister model to the MX Brown and MX Grey',
+    'Pressure': 65,
+    'Clicky': false,
+    'Tactile': true,
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=50>Buy Here</a>'
+  },
+  {
+    'Name': 'MX Gray',
+    'Description': 'Focused, Robust, and Noticeable. \nA slightly modified version of the MX Brown. Offers increased actuation force.',
+    'Pressure': 80,
+    'Clicky': false,
+    'Tactile': true,
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=84>Buy Here</a>'
+  },
+  {
+    'Name': 'MX Green',
+    'Description': 'Clicky, Robust, and Noticeable. \nA slightly modified version of the MX Blue. Offers increased actuation force.',
+    'Pressure': 80,
+    'Clicky': true,
+    'Tactile': true,
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=48>Buy Here</a>'
+  },
+  {'Name': 'MX Speed Silver',
+    'Description': 'Fast and Direct. \nThe fastest model of CHERRY MX in full height. Linear with low spring resistance.',
+    'Pressure': 45,
+    'Clicky': false,
+    'Tactile': false,
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=363>Buy Here</a>'
+  },
+  {'Name': 'MX Silent Red',
+    'Description': 'Smooth and Silent. \nA modified version of the MX red that uses damping to reliably minimize noise.',
+    'Pressure': 45,
+    'Clicky': false,
+    'Tactile': false,
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=476>Buy Here</a>'
+  },
+  {'Name': 'MX Blue',
+    'Description': 'Clicky and Noticeable. \nA Tactile switch that provides audible acoustic feedback.',
+    'Pressure': 60,
+    'Clicky': true,
+    'Tactile': true,
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=12>Buy Here</a>'
+  },
+  {'Name': 'MX Brown',
+    'Description': 'Focused and Noticeable. \nA Tactile switch with noticeable feedback',
+    'Pressure': 55,
+    'Clicky': false,
+    'Tactile': true,
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=11>Buy Here</a>'
+  },
+]
 
 // create instance of Switchlist to hold all of the switches
 let sl = new Switchlist();
 
-// populate the Switchlist with switches using the lists above
-for( let i = 0; i < nameList.length; i++ ){
-  sl.addSwitch( new Keyswitch( nameList[i], desList[i], pressureList[i], tactileList[i], clickyList[i], urlEndList[i]));
+// populate the Switchlist with switches using the keyData struct above
+for( let i = 0; i < keyData.length; i++){
+  sl.addSwitch( new Keyswitch( keyData[i].name, keyData[i].description, keyData[i].pressure,
+                                keyData[i].tactile, keyData[i].clicky, keyData[i].urlEnd));
 }
 
 console.log('-----Sorting by Name-----\n');
