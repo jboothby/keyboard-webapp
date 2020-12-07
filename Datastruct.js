@@ -166,4 +166,4 @@ function buildTable(sortCriteria){
 
   // add table to document
   div.appendChild(table);
-
+}
