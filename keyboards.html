@@ -15,40 +15,50 @@
                 <a class="item" href="index.html">Home</a>
                 <a class="item" href="information.html">Information</a>
                 <a class="item" href="keyboards.html">Keyboards</a>
+                <div class="login">
+                    <div class="ui input">
+                        <input type="text" placeholder="UserName">
+                        <input type="text" placeholder="Password">
+                        <button class="ui button">Login</button>
+                    </div>
+                </div>
             </div>
+
         </div>
 
         <br>
         <!-- contains drop down for sorting the table -->
-        <b>Sort By Attribute</b>
-        <div id="sortDropDown">
-            <div class="ui selection dropdown">
-                <input type="hidden" name="Sort By">
-                <i class="dropdown icon"></i>
-                <div class="default text">Sort By</div>
-                <div class="menu" id="dropDownData">
-                    <div class="item" data-value="name">Name</div>
-                    <div class="item" data-value="pressure">Actuation Pressure</div>
-                    <div class="item" data-value="clicky">Clicky</div>
-                    <div class="item" data-value="tactile">Tactile</div>
+        <div class="keyboards-header">
+            <b>Sort By Attribute</b>
+            <div id="sortDropDown">
+                <div class="ui selection dropdown">
+                    <input type="hidden" name="Sort By">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Sort By</div>
+                    <div class="menu" id="dropDownData">
+                        <div class="item" data-value="name">Name</div>
+                        <div class="item" data-value="pressure">Actuation Pressure</div>
+                        <div class="item" data-value="clicky">Clicky</div>
+                        <div class="item" data-value="tactile">Tactile</div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- script makes dropdown function properly, and sorts table upon change-->
         <script>
+            $(function(){
+                $.getJSON('db.json',function(data){
+                    // console.log("success");
+                    saveData(data); // This now does the initial table build
+                })
+            })
             $('.ui.dropdown')
                 .dropdown({
                     onChange: function(value){
                         buildTable(value);
                     }
                 });
-            $(function(){
-                $.getJSON('db.json',function(data){
-                    // console.log("success");
-                    saveData(data);
-                })
-            })
         </script>
         <br>
 
@@ -59,7 +69,7 @@
         </div>
         <!-- Script generates table for inital pass. Updates later from DropDown -->
         <script src="Datastruct.js"></script>
-        <script type="text/javascript">buildTable('name')</script>
+        <!-- <script type="text/javascript">buildTable('')</script> -->
 
 
     </body>

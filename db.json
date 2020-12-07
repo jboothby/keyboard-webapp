@@ -1,5 +1,5 @@
 {
-    "keyData": [
+    "keySwitches": [
     {
       "Name": "MX Black",
       "Description": "Powerful and Direct. \nA linear switch with increased spring force",
@@ -75,7 +75,7 @@
         {
             "id": "admin",
             "username": "admin",
-            "password": "password"
+            "password": "admin"
         }
     ]
 }

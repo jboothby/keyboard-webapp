@@ -11,3 +11,16 @@
 .login {
     margin-left: auto;
 }
+
+.keyboards-header {
+    margin-left: auto;
+    text-align: right;
+    /* background-color: aqua; */
+    padding: 10px;
+}
+
+.ui-cards{
+    justify-content: center;
+    padding: 10px;
+    /* text-align: ; */
+}

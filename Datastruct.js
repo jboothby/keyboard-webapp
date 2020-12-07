@@ -3,6 +3,7 @@
 // import data from './db.json';
 
 let keyData = [];
+let dataReady = false;
 // [
 //     {
 //         'Name': 'MX Black',
@@ -96,6 +97,9 @@ let keyData = [];
 function saveData(data) {
     keyData = data;
     console.log(keyData);
+    console.log(keyData.keySwitches.length);
+    dataReady = true;
+    buildTable('name')
 }
 
 function sort(attribute) {
@@ -106,32 +110,32 @@ function sort(attribute) {
     }
 
     // implement a simple bubble sort algorithm
-    for (let i = 0; i < keyData.length; i++) {
-        for (let j = 1; j < keyData.length; j++) {
+    for (let i = 0; i < keyData.keySwitches.length; i++) {
+        for (let j = 1; j < keyData.keySwitches.length; j++) {
 
 
             if (attribute === 'name') {
-                if (keyData[j].Name < keyData[j - 1].Name) {
+                if (keyData.keySwitches[j].Name < keyData.keySwitches[j - 1].Name) {
                     this.swap(j);
                 }
             }
 
             else if (attribute === 'pressure') {
-                if (keyData[j].Pressure < keyData[j - 1].Pressure) {
+                if (keyData.keySwitches[j].Pressure < keyData.keySwitches[j - 1].Pressure) {
                     this.swap(j);
                 }
             }
 
             else if (attribute === 'clicky') {
                 // if current is true, and last is false, switch. frontloads trues
-                if (keyData[j].Clicky === 'Yes' && keyData[j - 1].Clicky === 'No') {
+                if (keyData.keySwitches[j].Clicky === 'Yes' && keyData.keySwitches[j - 1].Clicky === 'No') {
                     this.swap(j);
                 }
             }
 
             else if (attribute === 'tactile') {
                 // if current is true, and last is false, switch. frontloads trues
-                if (keyData[j].Tactile === 'Yes' && keyData[j - 1].Tactile === 'No') {
+                if (keyData.keySwitches[j].Tactile === 'Yes' && keyData.keySwitches[j - 1].Tactile === 'No') {
                     this.swap(j);
                 }
             }
@@ -143,17 +147,22 @@ function sort(attribute) {
 // simple method responsible or swapping items in list
 // reduces clutter and repeated code in the sort method
 function swap(index) {
-    let temp = keyData[index - 1];
-    keyData[index - 1] = keyData[index];
-    keyData[index] = temp;
+    let temp = keyData.keySwitches[index - 1];
+    keyData.keySwitches[index - 1] = keyData.keySwitches[index];
+    keyData.keySwitches[index] = temp;
 }
 
 // Builds the HTML table using the semantic UI class for cell padded table
 // Parameter: sortCriteria (The attribute to sort the table based on. Name, Pressure, Clicky, Tactile)
 function buildTable(sortCriteria) {
+    if (sortCriteria === '') {
+        
+    } else {
+        sort(sortCriteria);
+    }
 
+    
     // Always sort the JSON based on the sort criteria before building the table
-    sort(sortCriteria);
 
     //create a table to hold the data
     let table = document.createElement('table');
@@ -162,32 +171,35 @@ function buildTable(sortCriteria) {
 
     // do the header for the table
     let row = table.insertRow(-1);
-    for (let key in keyData[0]) {
-        let headerCell = document.createElement("th");
-        headerCell.innerHTML = key;
-        row.appendChild(headerCell);
-    }
-
-    // iterate over each item in the JSON struct, insert new row for each
-    for (let i = 0; i < keyData.length; i++) {
-        //initialize add an additional row the table. -1 index puts it at the end
-        let tr = table.insertRow(-1);
-        // create new cell for each item in key in the struct
-        for (let key in keyData[i]) {
-            let cell = tr.insertCell(-1);
-            cell.innerHTML = keyData[i][key];
+    if (dataReady) {
+        for (let key in keyData.keySwitches[0]) {
+            let headerCell = document.createElement("th");
+            headerCell.innerHTML = key;
+            row.appendChild(headerCell);
         }
+    
+        // iterate over each item in the JSON struct, insert new row for each
+        for (let i = 0; i < keyData.keySwitches.length; i++) {
+            //initialize add an additional row the table. -1 index puts it at the end
+            let tr = table.insertRow(-1);
+            // create new cell for each item in key in the struct
+            for (let key in keyData.keySwitches[i]) {
+                let cell = tr.insertCell(-1);
+                cell.innerHTML = keyData.keySwitches[i][key];
+            }
+        }
+    
+        // div holds the proper location in the document for the table
+        let div = document.getElementById("SwitchTable");
+    
+        //check to see if there is a current table, if there is remove it
+        let oldTable = div.firstChild;
+        if (oldTable != null) {
+            div.removeChild(oldTable);
+        }
+    
+        // add table to document
+        div.appendChild(table);
     }
 
-    // div holds the proper location in the document for the table
-    let div = document.getElementById("SwitchTable");
-
-    //check to see if there is a current table, if there is remove it
-    let oldTable = div.firstChild;
-    if (oldTable != null) {
-        div.removeChild(oldTable);
-    }
-
-    // add table to document
-    div.appendChild(table);
 }
