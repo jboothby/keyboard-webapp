@@ -7,7 +7,7 @@ let keyData = [
     'Pressure': 60,
     'Clicky': 'No',
     'Tactile': 'No',
-    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=12>Buy Here</a>'
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=13>Buy Here</a>'
   },
   {
     'Name': 'MX Red',
@@ -15,7 +15,7 @@ let keyData = [
     'Pressure': 45,
     'Clicky': 'No',
     'Tactile': 'No',
-    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=13>Buy Here</a>'
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=14>Buy Here</a>'
   },
   {
     'Name': 'MX Clear',
@@ -23,7 +23,7 @@ let keyData = [
     'Pressure': 65,
     'Clicky': 'No',
     'Tactile': 'Yes',
-    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=49>Buy Here</a>'
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=50>Buy Here</a>'
   },
   {
     'Name': 'MX Gray',
@@ -31,7 +31,7 @@ let keyData = [
     'Pressure': 80,
     'Clicky': 'No',
     'Tactile': 'Yes',
-    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=83>Buy Here</a>'
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=84>Buy Here</a>'
   },
   {
     'Name': 'MX Green',
@@ -39,35 +39,38 @@ let keyData = [
     'Pressure': 80,
     'Clicky': 'Yes',
     'Tactile': 'Yes',
-    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=47>Buy Here</a>'
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=48>Buy Here</a>'
   },
   {'Name': 'MX Speed Silver',
     'Description': 'Fast and Direct. \nThe fastest model of CHERRY MX in full height. Linear with low spring resistance.',
     'Pressure': 45,
     'Clicky': 'No',
     'Tactile': 'No',
-    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=362>Buy Here</a>'
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=363>Buy Here</a>'
   },
   {'Name': 'MX Silent Red',
     'Description': 'Smooth and Silent. \nA modified version of the MX red that uses damping to reliably minimize noise.',
     'Pressure': 45,
     'Clicky': 'No',
     'Tactile': 'No',
-    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=475>Buy Here</a>'
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=476>Buy Here</a>'
+
   },
   {'Name': 'MX Blue',
     'Description': 'Clicky and Noticeable. \nA Tactile switch that provides audible acoustic feedback.',
     'Pressure': 60,
     'Clicky': 'Yes',
     'Tactile': 'Yes',
-    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=11>Buy Here</a>'
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=12>Buy Here</a>'
+
   },
   {'Name': 'MX Brown',
     'Description': 'Focused and Noticeable. \nA Tactile switch with noticeable feedback',
     'Pressure': 55,
     'Clicky': 'No',
     'Tactile': 'Yes',
-    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=10>Buy Here</a>'
+    'URL': '<a href=https://mechanicalkeyboards.com/shop/index.php?l=product_list&c=11>Buy Here</a>'
+
   },
 ]
 
@@ -163,4 +166,4 @@ function buildTable(sortCriteria){
 
   // add table to document
   div.appendChild(table);
-}
+
