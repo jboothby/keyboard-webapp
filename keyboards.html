@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Fellowship of the Keys</title>
@@ -17,17 +17,45 @@
                 <a class="item" href="keyboards.html">Keyboards</a>
             </div>
         </div>
+
+        <br>
+        <!-- contains drop down for sorting the table -->
+        <b>Sort By Attribute</b>
+        <div id="sortDropDown">
+            <div class="ui selection dropdown">
+                <input type="hidden" name="Sort By">
+                <i class="dropdown icon"></i>
+                <div class="default text">Sort By</div>
+                <div class="menu" id="dropDownData">
+                    <div class="item" data-value="name">Name</div>
+                    <div class="item" data-value="pressure">Actuation Pressure</div>
+                    <div class="item" data-value="clicky">Clicky</div>
+                    <div class="item" data-value="tactile">Tactile</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- script makes dropdown function properly, and sorts table upon change-->
+        <script>
+            $('.ui.dropdown')
+                .dropdown({
+                    onChange: function(value){
+                        buildTable(value);
+                    }
+                });
+        </script>
+        <br>
+
+        <!-- Beginning of Table for Keyboards-->
+        <div style="text-align: center;">
+            <div id="SwitchTable">
+            </div>
+        </div>
+        <!-- Script generates table for inital pass. Updates later from DropDown -->
+        <script src="Datastruct.js"></script>
+        <script type="text/javascript">buildTable('name')</script>
+
+
     </body>
 
-    <ul>Here will be:
-        <li>List of Keyboards (built in)</li>
-        <li>Filter Options</li>
-        <li>A Search Bar</li>
-    </ul>
-
-    <ul>Each list item will be a paper component than contians:
-        <li>Name of the keyboards</li>
-        <li>Key Type</li>
-        <li>Link to 'Mechanical Keyboards Site'</li>
-    </ul>
 </html>
