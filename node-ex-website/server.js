@@ -16,15 +16,6 @@ function add(object){
 
 }
 
-// display the contents of db.json file
-function display(){
-
-    let switchRaw = fs.readFileSync('db.json');
-    let switchData = JSON.parse(switchRaw);
-
-    console.log(switchData);
-}
-
 // remove object from db.json using the name field
 // to remove an object, pass it's name as a parameter such as remove('MX Brown')
 function remove(objName){
@@ -33,13 +24,8 @@ function remove(objName){
     let switchRaw = fs.readFileSync('db.json');
     let switchData = JSON.parse(switchRaw);
 
-    console.log('keySwitches before: ');
-    console.log(switchData.keySwitches);
-    console.log('Filtering out names with '+objName);
     // filter names that match from the switch data
     switchData.keySwitches = switchData.keySwitches.filter(data => data.Name !== objName);
-    console.log('keySwitches after: ');
-    console.log(switchData.keySwitches);
 
     // restructure data as json, and write over file
     let returnData = JSON.stringify(switchData, null, 2);
