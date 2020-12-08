@@ -36,6 +36,7 @@
         <button class="ui button" id="submit">Submit</button>
     </div>
 </div>
+
 <script>
     $(function(){
         $('#submit').click(function(){
@@ -47,11 +48,13 @@
             $items.each(function(){
                obj[this.id] = $(this).val();
             })
-            console.log('obj: '+obj);
+            // send this object literal to the server in a post request
+            // server will update the database
             $.post('/add', obj);
         })
     })
 </script>
+
 <div id="remove-table">
     <p>Please enter the name of the item you would like to remove from the database</p>
     <div class="ui input">
@@ -59,6 +62,20 @@
         <button class="ui button" id="remove">Remove</button>
     </div>
 </div>
+<!-- script handles removing when button is clicked -->
+<script>
+    $(function(){
+        // perform function when remove button is clicked
+        $('#remove').click(function(){
+            //get name from field
+            let name = $('#remove-name').val();
+            console.log('remove button clicked. deleting item name: '+name);
+            // send post request to server with name to remove
+            $.post('/remove', name);
+        })
+    })
+</script>
+
 <br>
 <br>
 <!-- table to display keyboards. Same as from keyboard page -->

@@ -33,8 +33,13 @@ function remove(objName){
     let switchRaw = fs.readFileSync('db.json');
     let switchData = JSON.parse(switchRaw);
 
+    console.log('keySwitches before: ');
+    console.log(switchData.keySwitches);
+    console.log('Filtering out names with '+objName);
     // filter names that match from the switch data
-    switchData.keySwitches = switchData.keySwitches.filter(data => data.name != objName);
+    switchData.keySwitches = switchData.keySwitches.filter(data => data.Name !== objName);
+    console.log('keySwitches after: ');
+    console.log(switchData.keySwitches);
 
     // restructure data as json, and write over file
     let returnData = JSON.stringify(switchData, null, 2);
@@ -105,6 +110,16 @@ app.route('/add').post(function(req,res){
     add(obj);
     console.log(obj);
 });
+
+app.use(bodyParser.text());
+// define routing for removing from the database
+app.route('/remove').post(function(req,res){
+    // the name is stored as the first key in a null-type object, so we extract that
+    let n = Object.keys(req.body)[0];
+    console.log('Removing item with name: ' + n);
+    console.log(typeof(n));
+    remove(n);
+})
 
 // define routing for the client to request db.json file using get
 app.route('/db.json').get(function(req,res){
