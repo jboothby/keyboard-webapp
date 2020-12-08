@@ -10,10 +10,60 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="Datastruct.js"></script>
+    <!-- script loads table initially -->
+    <script>
+        $(function(){
+            $.getJSON('/db.json',function(data){
+                // console.log("success");
+                saveData(JSON.stringify(data)); // This now does the initial table build
+            });
+        });
+    </script>
 </head>
+
+
 <body>
-<p> This is the admin page</p>
+<p> This is the admin page</p><br>
+<div id="add-table">
+    <p>Please enter the data you would like to add to the database</p>
+    <div class="ui input">
+        <input type="text" id="Name" placeholder="Switch Name">
+        <input type="text" id="Description" placeholder="Description">
+        <input type="text" id="Pressure" placeholder="Pressure">
+        <input type="text" id="Tactile" placeholder="Tactile(Yes/No)">
+        <input type="text" id="Clicky" placeholder="Clicky(Yes/No)">
+        <input type="text" id="URL" placeholder="URL">
+        <button class="ui button" id="submit">Submit</button>
+    </div>
+</div>
+<script>
+    $(function(){
+        $('#submit').click(function(){
+            // get data from proper fields, load into jquery iterable
+            let $items = $('#Name, #Description, #Pressure, #Tactile, #Clicky, #URL');
+            let obj = {};
+            //iterate through each item
+            //assign the ID as the key, and value as value
+            $items.each(function(){
+               obj[this.id] = $(this).val();
+            })
+            console.log('obj: '+obj);
+            $.post('/add', obj);
+        })
+    })
+</script>
+<div id="remove-table">
+    <p>Please enter the name of the item you would like to remove from the database</p>
+    <div class="ui input">
+        <input type="text" id="remove-name" placeholder="Name to Remove">
+        <button class="ui button" id="remove">Remove</button>
+    </div>
+</div>
+<br>
+<br>
+<!-- table to display keyboards. Same as from keyboard page -->
+<p>Current Database Contents</p>
+<div id="SwitchTable"></div>
 
 </body>
 </html>

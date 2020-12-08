@@ -89,12 +89,21 @@ app.route('/login').post(function(req, res) {
     let password = req.body.password;
     console.log("User_name: "+user_name+", password: "+password);
     if( validate(user_name, password)){
-        res.sendFile(path.join(__dirname + '/express/admin.html'));
+        console.log('Redirecting user to /express/admin.html');
+        res.sendFile(__dirname+'/express/admin.html');
     }
     else{
         res.end('no');
     }
     // return yes
+});
+
+// define routing for adding to database
+app.route('/add').post(function(req,res){
+    // convert post data to json object, print to console.
+    let obj = JSON.parse(JSON.stringify(req.body));
+    add(obj);
+    console.log(obj);
 });
 
 // define routing for the client to request db.json file using get
@@ -107,7 +116,7 @@ app.route('/db.json').get(function(req,res){
 
 // define default routing for website. Directs to index.html
 app.use('/', function(req,res){
-    res.sendFile(path.join(__dirname+'index.html'));
+    res.sendFile(path.join(__dirname+'/express/index.html'));
     //__dirname : It will resolve to your project folder.
 });
 

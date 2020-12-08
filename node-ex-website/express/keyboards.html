@@ -29,7 +29,8 @@
                             alert('Login Unsucessful');
                         }
                         else{
-                            window.open(data);
+                            // load the new page with the data from the server side
+                            $('body').replaceWith(data);
                         }
                     });
                 });
