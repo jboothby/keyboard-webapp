@@ -8,18 +8,50 @@
         <script type="text/javascript"
                 src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
         <link rel="stylesheet" href="style.css">
+
+        <!-- script redirects to proper routing for login to web server -->
+        <script>
+            // jQuery goes insides a document ready event to prevent running before loading page
+            // this has been shorted to $(function(){}). This allows script to be in header, instead of body
+            $(function(){
+                // init vars for user/password
+                let user,pass;
+                // # is the CSS selector for the ID tag, grabs our button, defines click function
+                $('#login-button').click(function(){
+                    // grab data from input fields, assign to vars
+                    user=$('#uname').val();
+                    pass=$('#pword').val();
+                    console.log("Uname: "+user+", Pword: "+pass);
+                    // post the username and password to the server (this is ajax)
+                    $.post('http://localhost:3000/login',{user: user,password: pass},function(data){
+                        // data is the response from the server
+                        if(data === 'no'){
+                            alert('Login Unsucessful');
+                        }
+                        else{
+                            // load the new page with the data from the server side
+                            $('body').replaceWith(data);
+                        }
+                    });
+                    //clear form input when button pressed
+                    $('#uname').val('');
+                    $('#pword').val('');
+                });
+            });
+        </script>
     </head>
     <body>
-        <div id="appBar">
-            <div class="ui borderless topmenu menu">
-                <a class="item" href="index.html">Home</a>
-                <a class="item" href="information.html">Information</a>
-                <a class="item" href="keyboards.html">Keyboards</a>
+
+    <div id="appBar">
+        <div class="ui borderless topmenu menu">
+            <a class="item" href="index.html">Home</a>
+            <a class="item" href="information.html">Information</a>
+            <a class="item" href="keyboards.html">Keyboards</a>
                 <div class="login">
                     <div class="ui input">
-                        <input type="text" placeholder="UserName">
-                        <input type="text" placeholder="Password">
-                        <button class="ui button" onclick="window.open('/login')">Login</button>
+                        <input type="text" id="uname" placeholder="UserName">
+                        <input type="text" id="pword" placeholder="Password">
+                        <button class="ui button" id="login-button">Login</button>
                     </div>
                 </div>
             </div>
@@ -48,9 +80,9 @@
         <!-- script makes dropdown function properly, and sorts table upon change-->
         <script>
             $(function(){
-                $.getJSON('db.json',function(data){
+                $.getJSON('/db.json',function(data){
                     // console.log("success");
-                    saveData(data); // This now does the initial table build
+                    saveData(JSON.stringify(data)); // This now does the initial table build
                 })
             })
             $('.ui.dropdown')
@@ -69,7 +101,7 @@
         </div>
         <!-- Script generates table for inital pass. Updates later from DropDown -->
         <script src="Datastruct.js"></script>
-        <!-- <script type="text/javascript">buildTable('')</script> -->
+
 
 
     </body>
