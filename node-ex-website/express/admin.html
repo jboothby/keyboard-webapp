@@ -48,6 +48,8 @@
             $items.each(function(){
                obj[this.id] = $(this).val();
             })
+            // add proper HTML hyperlink formatting to the URL tag
+            obj['URL'] = ("<a href=" + $('#URL').val() + ">Buy Here</a>");
             // send this object literal to the server in a post request
             // server will update the database
             $.post('/add', obj);

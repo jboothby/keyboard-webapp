@@ -97,14 +97,13 @@ app.route('/add').post(function(req,res){
     console.log(obj);
 });
 
-app.use(bodyParser.text());
 // define routing for removing from the database
 app.route('/remove').post(function(req,res){
     // the name is stored as the first key in a null-type object, so we extract that
     let n = Object.keys(req.body)[0];
     console.log('Removing item with name: ' + n);
-    console.log(typeof(n));
     remove(n);
+    console.log('Remove Successful');
 })
 
 // define routing for the client to request db.json file using get
