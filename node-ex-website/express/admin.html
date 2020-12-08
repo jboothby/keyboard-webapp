@@ -53,6 +53,16 @@
             // send this object literal to the server in a post request
             // server will update the database
             $.post('/add', obj);
+            // get the JSON data again to update the table
+            $(function(){
+                $.getJSON('/db.json',function(data){
+                    // console.log("success");
+                    saveData(JSON.stringify(data)); // This now does the initial table build
+                });
+            });
+            // clear input field values
+            $('#add-table input[type="text"]').val('');
+
         })
     })
 </script>
@@ -74,6 +84,14 @@
             console.log('remove button clicked. deleting item name: '+name);
             // send post request to server with name to remove
             $.post('/remove', name);
+            // reload JSON data and update table
+            $(function(){
+                $.getJSON('/db.json',function(data){
+                    // console.log("success");
+                    saveData(JSON.stringify(data)); // This now does the initial table build
+                });
+            });
+            $('#remove-table input[type="text"]').val('');
         })
     })
 </script>
