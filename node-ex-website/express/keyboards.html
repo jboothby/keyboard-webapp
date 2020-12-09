@@ -39,6 +39,11 @@
                 });
             });
         </script>
+        <style>
+            body{
+                background-image: url('mechanicalKeyboard.jpg');
+            }
+        </style>
     </head>
     <body>
 
@@ -47,14 +52,7 @@
             <a class="item" href="index.html">Home</a>
             <a class="item" href="information.html">Information</a>
             <a class="item" href="keyboards.html">Keyboards</a>
-                <div class="login">
-                    <div class="ui input">
-                        <input type="text" id="uname" placeholder="UserName">
-                        <input type="text" id="pword" placeholder="Password">
-                        <button class="ui button" id="login-button">Login</button>
-                    </div>
-                </div>
-            </div>
+        </div>
 
         </div>
 
@@ -92,11 +90,17 @@
                     }
                 });
         </script>
-        <br>
 
         <!-- Beginning of Table for Keyboards-->
         <div style="text-align: center;">
             <div id="SwitchTable">
+            </div>
+        </div>
+        <div class="login">
+			<div class="ui input">
+                <input type="text" id="uname" placeholder="UserName">
+                <input type="text" id="pword" placeholder="Password">
+                <button class="ui button" id="login-button">Admin Login</button>
             </div>
         </div>
         <!-- Script generates table for inital pass. Updates later from DropDown -->
