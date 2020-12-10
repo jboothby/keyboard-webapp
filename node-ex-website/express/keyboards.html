@@ -39,6 +39,11 @@
                 });
             });
         </script>
+        <style>
+            body{
+                background-image: url('mechanicalKeyboard.jpg');
+            }
+        </style>
     </head>
     <body>
 
@@ -47,35 +52,28 @@
             <a class="item" href="index.html">Home</a>
             <a class="item" href="information.html">Information</a>
             <a class="item" href="keyboards.html">Keyboards</a>
-                <div class="login">
-                    <div class="ui input">
-                        <input type="text" id="uname" placeholder="UserName">
-                        <input type="text" id="pword" placeholder="Password">
-                        <button class="ui button" id="login-button">Login</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <br>
-        <!-- contains drop down for sorting the table -->
-        <div class="keyboards-header">
-            <b>Sort By Attribute</b>
-            <div id="sortDropDown">
-                <div class="ui selection dropdown">
-                    <input type="hidden" name="Sort By">
-                    <i class="dropdown icon"></i>
-                    <div class="default text">Sort By</div>
-                    <div class="menu" id="dropDownData">
-                        <div class="item" data-value="name">Name</div>
-                        <div class="item" data-value="pressure">Actuation Pressure</div>
-                        <div class="item" data-value="clicky">Clicky</div>
-                        <div class="item" data-value="tactile">Tactile</div>
-                    </div>
+    </div>
+    <br>
+
+    <!-- contains drop down for sorting the table -->
+    <div class="keyboards-header">
+        <b>Sort By Attribute</b>
+        <div id="sortDropDown">
+            <div class="ui selection dropdown">
+                <input type="hidden" name="Sort By">
+                <i class="dropdown icon"></i>
+                <div class="default text">Sort By</div>
+                <div class="menu" id="dropDownData">
+                    <div class="item" data-value="name">Name</div>
+                    <div class="item" data-value="pressure">Actuation Pressure</div>
+                    <div class="item" data-value="clicky">Clicky</div>
+                    <div class="item" data-value="tactile">Tactile</div>
                 </div>
             </div>
         </div>
+    </div>
 
         <!-- script makes dropdown function properly, and sorts table upon change-->
         <script>
@@ -92,11 +90,17 @@
                     }
                 });
         </script>
-        <br>
 
         <!-- Beginning of Table for Keyboards-->
         <div style="text-align: center;">
             <div id="SwitchTable">
+            </div>
+        </div>
+        <div class="login">
+			<div class="ui input">
+                <input type="text" id="uname" placeholder="UserName">
+                <input type="text" id="pword" placeholder="Password">
+                <button class="ui button" id="login-button">Admin Login</button>
             </div>
         </div>
         <!-- Script generates table for inital pass. Updates later from DropDown -->

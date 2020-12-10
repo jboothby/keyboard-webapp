@@ -1,26 +1,46 @@
-.ui borderless topmenu menu {
+div.ui.borderless.topmenu.menu {
     justify-content: center;
     text-align: center;
+    background-color: lightslategray;
+}
+div.login {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+	
 }
 
-.appBar {
-    justify-content: center;
-    text-align: center;
-}
-
-.login {
+div.keyboards-header {
     margin-left: auto;
-}
-
-.keyboards-header {
-    margin-left: auto;
+	margin-right: auto;
     text-align: right;
-    /* background-color: aqua; */
+	width: 80%;
+    /* background-color: aqua;*/
     padding: 10px;
 }
 
-.ui-cards{
+div.ui-cards{
     justify-content: center;
     padding: 10px;
     /* text-align: ; */
 }
+#SwitchTable {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#SwitchTable tr:hover {background-color: #ddd;}
+#SwitchTable tr:nth-child(even){background-color: #f2f2f2;}
+#SwitchTable td, #SwitchTable th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#SwitchTable th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
