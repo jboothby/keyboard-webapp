@@ -52,7 +52,11 @@
             obj['URL'] = ("<a href=" + $('#URL').val() + ">Buy Here</a>");
             // send this object literal to the server in a post request
             // server will update the database
-            $.post('/add', obj);
+            $.post('/add', obj, function(data){
+                if( data === 'no'){
+                    alert('Must include a name!');
+                }
+            });
             // get the JSON data again to update the table
             $(function(){
                 $.getJSON('/db.json',function(data){
