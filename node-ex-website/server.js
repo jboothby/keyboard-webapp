@@ -93,7 +93,13 @@ app.route('/login').post(function(req, res) {
 app.route('/add').post(function(req,res){
     // convert post data to json object, print to console.
     let obj = JSON.parse(JSON.stringify(req.body));
-    add(obj);
+    // only add object if the name field is not blank
+    if(obj['Name'] !== '') {
+        add(obj);
+    }
+    else {
+        res.end('no');
+    }
     console.log(obj);
 });
 

@@ -4,10 +4,7 @@ div.ui.borderless.topmenu.menu {
     background-color: lightslategray;
 }
 div.login {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-	
+    text-align: right;
 }
 
 div.keyboards-header {
@@ -21,8 +18,10 @@ div.keyboards-header {
 
 div.ui-cards{
     justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     padding: 10px;
-    /* text-align: ; */
 }
 #SwitchTable {
     width: 80%;
@@ -43,4 +42,39 @@ div.ui-cards{
     background-color: #4CAF50;
     color: white;
 }
-
+.header{
+    background-image: url('pictures/woodGrain.png');
+    padding: 20px;
+    text-align: center;
+    color: #4CAF50;
+}
+.footer{
+    background-image: url('pictures/woodGrain.png');
+    padding: 20px;
+    clear: both;
+    position: relative;
+    height: 100px;
+    margin-top: 300px;
+    text-align: center;
+    color: #4CAF50;
+}
+h1, h2, h3{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.info-block{
+    font-size: large;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    text-align: center;
+    position: relative;
+    margin-top: 100px;
+}
+.devs{
+    position: relative;
+    clear: both;
+    margin-top: 200px;
+}
