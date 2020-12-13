@@ -2,7 +2,7 @@
   "keySwitches": [
     {
       "Name": "MX Black",
-      "Description": "Powerful and Direct. \nA linear switch with increased spring force",
+      "Description": "Powerful and Direct. \nA linear switch with increased actuation pressure",
       "Pressure": 60,
       "Clicky": "No",
       "Tactile": "No",
@@ -10,7 +10,7 @@
     },
     {
       "Name": "MX Red",
-      "Description": "Smooth and Direct. \nA linear switch with low spring resistance. A first choice for beginners",
+      "Description": "Smooth and Direct. \nA linear switch with low actuation pressure. A good first choice for beginners",
       "Pressure": 45,
       "Clicky": "No",
       "Tactile": "No",
@@ -26,7 +26,7 @@
     },
     {
       "Name": "MX Gray",
-      "Description": "Focused, Robust, and Noticeable. \nA slightly modified version of the MX Brown. Offers increased actuation force.",
+      "Description": "Focused, Robust, and Noticeable. \nA slightly modified version of the MX Brown. Offers increased actuation pressure",
       "Pressure": 80,
       "Clicky": "No",
       "Tactile": "Yes",
@@ -34,7 +34,7 @@
     },
     {
       "Name": "MX Green",
-      "Description": "Clicky, Robust, and Noticeable. \nA slightly modified version of the MX Blue. Offers increased actuation force.",
+      "Description": "Clicky, Robust, and Noticeable. \nA slightly modified version of the MX Blue. Offers increased actuation pressure",
       "Pressure": 80,
       "Clicky": "Yes",
       "Tactile": "Yes",
@@ -42,7 +42,7 @@
     },
     {
       "Name": "MX Speed Silver",
-      "Description": "Fast and Direct. \nThe fastest model of CHERRY MX in full height. Linear with low spring resistance.",
+      "Description": "Fast and Direct. \nThe fastest model of CHERRY MX in full height. Linear with low actuation pressure",
       "Pressure": 45,
       "Clicky": "No",
       "Tactile": "No",
@@ -58,7 +58,7 @@
     },
     {
       "Name": "MX Blue",
-      "Description": "Clicky and Noticeable. \nA Tactile switch that provides audible acoustic feedback.",
+      "Description": "Clicky and Noticeable. \nA Tactile switch that provides audible acoustic feedback",
       "Pressure": 60,
       "Clicky": "Yes",
       "Tactile": "Yes",
