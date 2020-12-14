@@ -15,5 +15,5 @@ class Switchlist{
   void sortByClicky()
   void printAllKeys()
 }
-Switchlist --o Keyswitch : contain several >
+Switchlist --o Keyswitch : contain 9 >
 @enduml
