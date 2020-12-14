@@ -3,10 +3,10 @@ title Fellowship of the Keys\nActivity Diagram\n
 
 (*)-->"Web Application Home Page"
 "Web Application Home Page" --> "Admin Login"
-if "Credentials Correct" then
-  -->[true]"Admin Editor Page"
+if "Credentials" then
+  -->[valid]"Admin Editor Page"
 else
-  -->[false]"Web Application Home Page"
+  -->[invalid]"Web Application Home Page"
 "Admin Editor Page" --> "Make Changes"
 if "Save Changes" then
   -->[true]"Update Database"
